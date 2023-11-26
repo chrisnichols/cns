@@ -1,0 +1,10 @@
+{
+  "cmake.debugConfig": {
+    "args": []
+  },
+  "files.associations": {
+    "*.in": "cpp",
+    "*.ixx": "cpp"
+  },
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true
+}

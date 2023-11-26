@@ -1,0 +1,28 @@
+General build:
+* Cross platform
+
+Coding ideas. Add when they are needed!
+* cns.core
+	* unique_ptr and shared_ptr that propagate const
+	* cow_ptr
+	* scope_exit, scope_fail, scope_success
+	* unique_resource
+* cns.concurrency (core?)
+	* thread safe queue
+	* thread pool
+	* C++ Concurrency in Action
+* cns.functional (core?)
+	* lift?
+	* operator | overload?
+	* Functional Programming in C++
+* cns.math 
+	* Geometry types and algorithms
+	* Foundations of GED Vol 1
+	* Computational Geometry
+* cns.ml
+	* Pattern Classification
+* cns.app
+	* OpenGL tutorial?
+	* Vulkan?
+	* Config processing
+    * entity component system	
