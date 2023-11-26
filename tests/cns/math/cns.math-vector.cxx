@@ -7,16 +7,16 @@ import cns;
 SCENARIO("Vector3D supports basic operations") {
 
     GIVEN("A vector") {
-        const auto vector3D = cns::Vector3D{3.0, 1.0, 2.0};
+        const auto v = cns::Vector3D{3.0, 1.0, 2.0};
 
         THEN("The vector has been initialized") {
-            CHECK(vector3D.x() == 3.0);
-            CHECK(vector3D.y() == 1.0);
-            CHECK(vector3D.z() == 2.0);
+            CHECK(v.x() == 3.0);
+            CHECK(v.y() == 1.0);
+            CHECK(v.z() == 2.0);
         }
 
         WHEN("The vector undergoes post-scalar multiplication") {
-            const auto result = vector3D * 2.0;
+            const auto result = v * 2.0;
 
             THEN("The result has been scaled") {
                 CHECK(result.x() == 6.0);
@@ -26,7 +26,7 @@ SCENARIO("Vector3D supports basic operations") {
         }
 
         WHEN("The vector undergoes pre-scalar multiplication") {
-            const auto result = 3.0 * vector3D;
+            const auto result = 3.0 * v;
 
             THEN("The result has been scaled") {
                 CHECK(result.x() == 9.0);
@@ -36,7 +36,7 @@ SCENARIO("Vector3D supports basic operations") {
         }
 
         WHEN("The vector undergoes scalar division") {
-            const auto result = vector3D / 2.0;
+            const auto result = v / 2.0;
 
             THEN("The result has been scaled") {
                 CHECK(result.x() == 1.5);
@@ -46,17 +46,17 @@ SCENARIO("Vector3D supports basic operations") {
         }
 
         WHEN("The vector has been negated") {
-            const auto result = -vector3D;
+            const auto result = -v;
 
             THEN("The result is the negation of the vector") {
-                CHECK(result.x() == -vector3D.x());
-                CHECK(result.y() == -vector3D.y());
-                CHECK(result.z() == -vector3D.z());
+                CHECK(result.x() == -v.x());
+                CHECK(result.y() == -v.y());
+                CHECK(result.z() == -v.z());
             }
         }
 
         WHEN("The magnitude of the vector has been calculated") {
-            const auto result = cns::magnitude(vector3D);
+            const auto result = cns::magnitude(v);
 
             THEN("The result has been calculated correctly") {
                 CHECK(result == std::sqrt(14.0));

@@ -22,25 +22,24 @@ auto Vector3D::z() const -> double {
     return this->m_coords[2];
 }
 
-auto operator*(const Vector3D& vector3D, const double val) -> Vector3D {
-    return {vector3D.x() * val, vector3D.y() * val, vector3D.z() * val};
+auto operator*(const Vector3D& v, const double s) -> Vector3D {
+    return {v.x() * s, v.y() * s, v.z() * s};
 }
 
-auto operator*(const double val, const Vector3D& vector3D) -> Vector3D {
-    return vector3D * val;
+auto operator*(const double s, const Vector3D& v) -> Vector3D {
+    return v * s;
 }
 
-auto operator/(const Vector3D& vector3D, const double val) -> Vector3D {
-    return vector3D * (1.0 / val);
+auto operator/(const Vector3D& v, const double s) -> Vector3D {
+    return v * (1.0 / s);
 }
 
-auto operator-(const Vector3D& vector3D) -> Vector3D {
-    return {-vector3D.x(), -vector3D.y(), -vector3D.z()};
+auto operator-(const Vector3D& v) -> Vector3D {
+    return {-v.x(), -v.y(), -v.z()};
 }
 
-auto magnitude(const Vector3D& vector3D) -> double {
-    return std::sqrt(vector3D.x() * vector3D.x() + vector3D.y() * vector3D.y() +
-                     vector3D.z() * vector3D.z());
+auto magnitude(const Vector3D& v) -> double {
+    return std::sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z());
 }
 
 } // namespace cns

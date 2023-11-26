@@ -32,30 +32,30 @@ export class Vector3D {
 };
 
 /// @brief Scalar multiplication for a Vector3D
-/// @param vector3D
-/// @param val
+/// @param v The Vector3D
+/// @param s The scalar multiplier
 /// @return
-export auto operator*(const Vector3D& vector3D, double val) -> Vector3D;
+export auto operator*(const Vector3D& v, double s) -> Vector3D;
 
 /// @brief Scalar multiplication for a Vector3D
-/// @param val
-/// @param vector3D
+/// @param s The scalar multiplier
+/// @param v The Vector3D
 /// @return
-export auto operator*(double val, const Vector3D& vector3D) -> Vector3D;
+export auto operator*(double s, const Vector3D& v) -> Vector3D;
 
 /// @brief Scalar division for a Vector3D
-/// @param vector3D
-/// @param val
+/// @param v The Vector3D
+/// @param s The scalar divisor
 /// @return
-export auto operator/(const Vector3D& vector3D, double val) -> Vector3D;
+export auto operator/(const Vector3D& v, double s) -> Vector3D;
 
 /// @brief Negates a Vector3D
-/// @param vector3D
+/// @param v The Vector3D
 /// @return
-export auto operator-(const Vector3D& vector3D) -> Vector3D;
+export auto operator-(const Vector3D& v) -> Vector3D;
 
 /// @brief Calculates the magnitude of the input vector
-/// @param vector3D
+/// @param v The Vector3D
 /// @return
-export auto magnitude(const Vector3D& vector3D) -> double;
+export auto magnitude(const Vector3D& v) -> double;
 } // namespace cns
