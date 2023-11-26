@@ -1,5 +1,7 @@
 #include "catch2/catch_test_macros.hpp"
 
+#include <cmath>
+
 import cns;
 
 SCENARIO("Vector3D supports basic operations") {
@@ -50,6 +52,14 @@ SCENARIO("Vector3D supports basic operations") {
                 CHECK(result.x() == -vector3D.x());
                 CHECK(result.y() == -vector3D.y());
                 CHECK(result.z() == -vector3D.z());
+            }
+        }
+
+        WHEN("The magnitude of the vector has been calculated") {
+            const auto result = cns::magnitude(vector3D);
+
+            THEN("The result has been calculated correctly") {
+                CHECK(result == std::sqrt(14.0));
             }
         }
     }

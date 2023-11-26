@@ -1,5 +1,7 @@
 module;
 
+#include <cmath>
+
 module cns.math;
 
 namespace cns {
@@ -34,6 +36,11 @@ auto operator/(const Vector3D &vector3D, const double val) -> Vector3D {
 
 auto operator-(const Vector3D &vector3D) -> Vector3D {
     return {-vector3D.x(), -vector3D.y(), -vector3D.z()};
+}
+
+auto magnitude(const Vector3D &vector3D) -> double {
+    return std::sqrt(vector3D.x() * vector3D.x() + vector3D.y() * vector3D.y() +
+                     vector3D.z() * vector3D.z());
 }
 
 } // namespace cns

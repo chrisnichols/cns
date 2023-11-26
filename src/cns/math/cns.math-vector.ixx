@@ -54,4 +54,8 @@ export auto operator/(const Vector3D &vector3D, double val) -> Vector3D;
 /// @return
 export auto operator-(const Vector3D &vector3D) -> Vector3D;
 
+/// @brief Calculates the magnitude of the input vector
+/// @param vector3D
+/// @return
+export auto magnitude(const Vector3D &vector3D) -> double;
 } // namespace cns
