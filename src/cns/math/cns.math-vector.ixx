@@ -58,4 +58,9 @@ export auto operator-(const Vector3D& v) -> Vector3D;
 /// @param v The Vector3D
 /// @return
 export auto magnitude(const Vector3D& v) -> double;
+
+/// @brief Creates the unit vector with the same direction as the input vector
+/// @param v The Vector3D
+/// @return
+export auto normalize(const Vector3D& v) -> Vector3D;
 } // namespace cns

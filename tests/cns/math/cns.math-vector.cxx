@@ -62,5 +62,13 @@ SCENARIO("Vector3D supports basic operations") {
                 CHECK(result == std::sqrt(14.0));
             }
         }
+
+        WHEN("The vector has been normalized") {
+            const auto result = cns::normalize(v);
+
+            THEN("The magnitude of the result is 1.0") {
+                CHECK(cns::magnitude(result) == 1.0);
+            }
+        }
     }
 }

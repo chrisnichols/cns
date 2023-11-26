@@ -42,4 +42,7 @@ auto magnitude(const Vector3D& v) -> double {
     return std::sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z());
 }
 
+auto normalize(const Vector3D& v) -> Vector3D {
+    return v / magnitude(v);
+}
 } // namespace cns
