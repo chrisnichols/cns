@@ -1,0 +1,2 @@
+# Catch2 generates too many issues. Do not run any checks on the tests
+Checks: -*
