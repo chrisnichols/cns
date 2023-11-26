@@ -45,6 +45,12 @@ SCENARIO("Vector3D supports basic operations") {
             }
         }
 
+        WHEN("The vector is divided by 0") {
+            THEN("An exception is thrown") {
+                CHECK_THROWS(v / 0.0);
+            }
+        }
+
         WHEN("The vector has been negated") {
             const auto result = -v;
 
@@ -68,6 +74,16 @@ SCENARIO("Vector3D supports basic operations") {
 
             THEN("The magnitude of the result is 1.0") {
                 CHECK(cns::magnitude(result) == 1.0);
+            }
+        }
+    }
+
+    GIVEN("The 0 vector") {
+        const auto v = cns::Vector3D{0.0, 0.0, 0.0};
+
+        WHEN("The vector is normalized") {
+            THEN("An exception is thrown") {
+                CHECK_THROWS(cns::normalize(v));
             }
         }
     }

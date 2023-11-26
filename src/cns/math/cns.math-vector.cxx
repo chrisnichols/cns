@@ -1,6 +1,7 @@
 module;
 
 #include <cmath>
+#include <stdexcept>
 
 module cns.math;
 
@@ -33,6 +34,10 @@ auto operator*(const double s, const Vector3D& v) noexcept -> Vector3D {
 }
 
 auto operator/(const Vector3D& v, const double s) -> Vector3D {
+    if (s == 0.0) {
+        throw std::domain_error("Divide by 0");
+    }
+
     return v * (1.0 / s);
 }
 
