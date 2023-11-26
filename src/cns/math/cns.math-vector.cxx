@@ -22,23 +22,23 @@ auto Vector3D::z() const -> double {
     return this->m_coords[2];
 }
 
-auto operator*(const Vector3D &vector3D, const double val) -> Vector3D {
+auto operator*(const Vector3D& vector3D, const double val) -> Vector3D {
     return {vector3D.x() * val, vector3D.y() * val, vector3D.z() * val};
 }
 
-auto operator*(const double val, const Vector3D &vector3D) -> Vector3D {
+auto operator*(const double val, const Vector3D& vector3D) -> Vector3D {
     return vector3D * val;
 }
 
-auto operator/(const Vector3D &vector3D, const double val) -> Vector3D {
+auto operator/(const Vector3D& vector3D, const double val) -> Vector3D {
     return vector3D * (1.0 / val);
 }
 
-auto operator-(const Vector3D &vector3D) -> Vector3D {
+auto operator-(const Vector3D& vector3D) -> Vector3D {
     return {-vector3D.x(), -vector3D.y(), -vector3D.z()};
 }
 
-auto magnitude(const Vector3D &vector3D) -> double {
+auto magnitude(const Vector3D& vector3D) -> double {
     return std::sqrt(vector3D.x() * vector3D.x() + vector3D.y() * vector3D.y() +
                      vector3D.z() * vector3D.z());
 }
