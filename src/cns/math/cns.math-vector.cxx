@@ -41,6 +41,15 @@ auto operator/(const Vector3D& v, const double s) -> Vector3D {
     return v * (1.0 / s);
 }
 
+auto operator+(const Vector3D& leftV, const Vector3D& rightV) -> Vector3D {
+    return {leftV.x() + rightV.x(), leftV.y() + rightV.y(),
+            leftV.z() + rightV.z()};
+}
+
+auto operator-(const Vector3D& leftV, const Vector3D& rightV) -> Vector3D {
+    return leftV + (-rightV);
+}
+
 auto operator-(const Vector3D& v) noexcept -> Vector3D {
     return {-v.x(), -v.y(), -v.z()};
 }

@@ -76,6 +76,46 @@ SCENARIO("Vector3D supports basic operations") {
                 CHECK(cns::magnitude(result) == 1.0);
             }
         }
+
+        GIVEN("A second vector") {
+            const auto v2 = cns::Vector3D{5.0, 2.0, 4.0};
+
+            WHEN("The two vectors are added") {
+                const auto result = v + v2;
+
+                THEN("The result has been calculated correctly") {
+                    CHECK(result.x() == 8.0);
+                    CHECK(result.y() == 3.0);
+                    CHECK(result.z() == 6.0);
+                }
+
+                WHEN("The two vectors are added in the other order") {
+                    const auto result2 = v2 + v;
+
+                    THEN("The results are the same") {
+                        CHECK(result == result2);
+                    }
+                }
+            }
+
+            WHEN("The two vectors are subtracted") {
+                const auto result = v - v2;
+
+                THEN("The result has been calculated correctly") {
+                    CHECK(result.x() == -2.0);
+                    CHECK(result.y() == -1.0);
+                    CHECK(result.z() == -2.0);
+                }
+
+                WHEN("The two vectors are subtracted in the other order") {
+                    const auto result2 = v2 - v;
+
+                    THEN("The results are not the same") {
+                        CHECK(result != result2);
+                    }
+                }
+            }
+        }
     }
 
     GIVEN("The 0 vector") {

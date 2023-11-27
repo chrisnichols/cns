@@ -1,5 +1,7 @@
 module;
 
+#include <compare>
+
 export module cns.math:vector;
 
 namespace cns {
@@ -12,6 +14,11 @@ export class Vector3D {
     /// @param y
     /// @param z
     Vector3D(double x, double y, double z) noexcept;
+
+    /// @brief Defaulted Three-Way Comparison operator
+    /// @param v Another Vector3D
+    /// @return
+    auto operator<=>(const Vector3D& v) const = default;
 
     /// @brief Returns the x-compopnent of the vector
     /// @return x-component
@@ -50,6 +57,20 @@ export [[nodiscard]] auto operator*(double s, const Vector3D& v) noexcept
 /// @param s The scalar divisor
 /// @return
 export [[nodiscard]] auto operator/(const Vector3D& v, double s) -> Vector3D;
+
+/// @brief Vector addition
+/// @param leftV The left Vector3D
+/// @param rightV The right Vector3D
+/// @return
+export [[nodiscard]] auto operator+(const Vector3D& leftV,
+                                    const Vector3D& rightV) -> Vector3D;
+
+/// @brief Vector subtraction
+/// @param leftV The left Vector3D
+/// @param rightV The right Vector3D
+/// @return
+export [[nodiscard]] auto operator-(const Vector3D& leftV,
+                                    const Vector3D& rightV) -> Vector3D;
 
 /// @brief Negates a Vector3D
 /// @param v The Vector3D
