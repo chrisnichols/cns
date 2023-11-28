@@ -7,10 +7,10 @@ export module cns.math:vector;
 
 namespace cns {
 
-/// @brief Three Dimesional Vector
+/// @brief 3-Dimesional Vector
 export class Vector3D {
   public:
-    /// @brief Constructs a vector with the specified components
+    /// @brief Constructs a Vector3D with the specified components
     /// @param x
     /// @param y
     /// @param z

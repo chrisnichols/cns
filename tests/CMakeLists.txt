@@ -3,6 +3,7 @@ find_package(Catch2 REQUIRED)
 add_executable(
     tests
     cns/math/cns.math-vector.cxx
+    cns/math/cns.math-matrix.cxx
 )
 
 target_include_directories(tests PUBLIC ${PROJECT_SOURCE_DIR}/src)

@@ -4,3 +4,4 @@ module;
 export module cns.math;
 
 export import :vector;
+export import :matrix;
