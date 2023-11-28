@@ -13,6 +13,10 @@ SCENARIO("Vector3D supports basic operations") {
             CHECK(v.x() == 3.0);
             CHECK(v.y() == 1.0);
             CHECK(v.z() == 2.0);
+
+            CHECK(v.x() == v[0]);
+            CHECK(v.y() == v[1]);
+            CHECK(v.z() == v[2]);
         }
 
         WHEN("The vector undergoes post-scalar multiplication") {

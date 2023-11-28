@@ -8,21 +8,23 @@ module cns.math;
 namespace cns {
 
 Vector3D::Vector3D(const double x, const double y, const double z) noexcept
-    : m_x{x},
-      m_y{y},
-      m_z{z} {
+    : m_components{x, y, z} {
+}
+
+auto Vector3D::operator[](int i) const -> double {
+    return this->m_components[i];
 }
 
 auto Vector3D::x() const noexcept -> double {
-    return this->m_x;
+    return this->m_components[0];
 }
 
 auto Vector3D::y() const noexcept -> double {
-    return this->m_y;
+    return this->m_components[1];
 }
 
 auto Vector3D::z() const noexcept -> double {
-    return this->m_z;
+    return this->m_components[2];
 }
 
 auto operator*(const Vector3D& v, const double s) noexcept -> Vector3D {

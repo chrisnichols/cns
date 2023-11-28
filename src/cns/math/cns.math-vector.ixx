@@ -1,5 +1,6 @@
 module;
 
+#include <array>
 #include <compare>
 
 export module cns.math:vector;
@@ -20,6 +21,11 @@ export class Vector3D {
     /// @return
     auto operator<=>(const Vector3D& v) const = default;
 
+    /// @brief Index operator
+    /// @param i Index
+    /// @return
+    [[nodiscard]] auto operator[](int i) const -> double;
+
     /// @brief Returns the x-compopnent of the vector
     /// @return x-component
     [[nodiscard]] auto x() const noexcept -> double;
@@ -33,9 +39,7 @@ export class Vector3D {
     [[nodiscard]] auto z() const noexcept -> double;
 
   private:
-    double m_x;
-    double m_y;
-    double m_z;
+    std::array<double, 3> m_components;
 };
 
 /// @brief Scalar multiplication for a Vector3D
