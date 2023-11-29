@@ -40,4 +40,10 @@ export class Matrix3D {
     std::array<Vector3D, 3> m_entries;
 };
 
+/// @brief Multiplication between 3x3 Matrix and 3x1 Vector
+/// @param m The Matrix3D
+/// @param v The column Vector3D
+/// @return
+export auto operator*(const Matrix3D& m, const Vector3D& v) -> Vector3D;
+
 } // namespace cns

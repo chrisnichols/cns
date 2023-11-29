@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.27)
 
-project(CNS VERSION 0.0.0.1)
+project(CNS VERSION 0.0.1.4)
 
 set(CMAKE_CXX_STANDARD 20)
 

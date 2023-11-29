@@ -39,3 +39,21 @@ SCENARIO("Matrix3D supports basic operations") {
         }
     }
 }
+
+SCENARIO("Matrix3D supports multiplication with a column Vector3D") {
+
+    GIVEN("A matrix composed of column vectors") {
+        const auto a = cns::Vector3D{1.0, 2.0, 3.0};
+        const auto b = cns::Vector3D{4.0, 5.0, 6.0};
+        const auto c = cns::Vector3D{7.0, 8.0, 9.0};
+
+        const auto m = cns::Matrix3D{a, b, c};
+
+        THEN("The matrix multiplied by the unit axis aligned vectors produces "
+             "the columns of the matrix") {
+            CHECK(a == m * cns::Vector3D{1, 0, 0});
+            CHECK(b == m * cns::Vector3D{0, 1, 0});
+            CHECK(c == m * cns::Vector3D{0, 0, 1});
+        }
+    }
+}

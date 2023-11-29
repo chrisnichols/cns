@@ -20,4 +20,8 @@ auto Matrix3D::operator[](int column) const -> const Vector3D& {
     return this->m_entries[column];
 }
 
+auto operator*(const Matrix3D& m, const Vector3D& v) -> Vector3D {
+    return m[0] * v.x() + m[1] * v.y() + m[2] * v.z();
+}
+
 } // namespace cns
