@@ -159,6 +159,7 @@ SCENARIO("Vector3D follows the basic properties") {
         }
 
         THEN("Distributive laws for scalar-vector multiplication") {
+            CHECK(s * (a + b) == s * a + s * b);
             CHECK((s + t) * a == s * a + t * a);
         }
     }

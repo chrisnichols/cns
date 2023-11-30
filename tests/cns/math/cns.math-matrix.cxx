@@ -132,7 +132,27 @@ SCENARIO("Matrix3D follows the basic properties") {
         }
 
         THEN("Distributive laws for scalar-matrix multiplication") {
+            CHECK(s * (a + b) == s * a + s * b);
             CHECK((s + t) * a == s * a + t * a);
+        }
+
+        THEN("Associative law for matrix multiplication") {
+            CHECK((a * b) * c == a * (b * c));
+        }
+
+        THEN("Distributive laws for matrix multiplication") {
+            CHECK(a * (b + c) == a * b + a * c);
+            CHECK((a + b) * c == a * c + b * c);
+        }
+
+        THEN("Scalar factorization for matrices") {
+            CHECK((t * a) * b == a * (t * b));
+            CHECK((t * a) * b == t * (a * b));
+        }
+
+        THEN("Product rule for matrix transpose") {
+            CHECK(cns::transpose(a * b) ==
+                  cns::transpose(b) * cns::transpose(a));
         }
     }
 }
