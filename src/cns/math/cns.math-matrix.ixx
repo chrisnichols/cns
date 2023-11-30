@@ -53,4 +53,9 @@ export auto operator*(const Matrix3D& leftM, const Matrix3D& rightM)
 /// @return
 export auto operator*(const Matrix3D& m, const Vector3D& v) -> Vector3D;
 
+/// @brief Tranposes the Matrix3D
+/// @param m The Matrix3D
+/// @return
+export auto transpose(const Matrix3D& m) -> Matrix3D;
+
 } // namespace cns

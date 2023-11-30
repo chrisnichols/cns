@@ -37,6 +37,22 @@ SCENARIO("Matrix3D supports basic operations") {
             CHECK(m[2][1] == m(1, 2));
             CHECK(m[2][2] == m(2, 2));
         }
+
+        THEN("The matrix can be transposed") {
+            const auto t = cns::transpose(m);
+
+            CHECK(m(0, 0) == t(0, 0));
+            CHECK(m(0, 1) == t(1, 0));
+            CHECK(m(0, 2) == t(2, 0));
+
+            CHECK(m(1, 0) == t(0, 1));
+            CHECK(m(1, 1) == t(1, 1));
+            CHECK(m(1, 2) == t(2, 1));
+
+            CHECK(m(2, 0) == t(0, 2));
+            CHECK(m(2, 1) == t(1, 2));
+            CHECK(m(2, 2) == t(2, 2));
+        }
     }
 }
 

@@ -48,4 +48,10 @@ auto operator*(const Matrix3D& m, const Vector3D& v) -> Vector3D {
     return m[0] * v.x() + m[1] * v.y() + m[2] * v.z();
 }
 
+auto transpose(const Matrix3D& m) -> Matrix3D {
+    return {{m(0, 0), m(0, 1), m(0, 2)},
+            {m(1, 0), m(1, 1), m(1, 2)},
+            {m(2, 0), m(2, 1), m(2, 2)}};
+}
+
 } // namespace cns
