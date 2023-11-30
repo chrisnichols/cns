@@ -1,7 +1,9 @@
-General build:
+General:
+* more tests
 * constexpr
 * noexcept
-* Cross platform
+* optimization
+* cross platform
 
 Coding ideas. Add when they are needed!
 * cns.core
