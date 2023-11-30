@@ -75,7 +75,7 @@ export [[nodiscard]] auto operator-(const Matrix3D& leftM,
                                     const Matrix3D& rightM) -> Matrix3D;
 
 /// @brief Negates a Matrix3D
-/// @param v The Matrix3D
+/// @param m The Matrix3D
 /// @return
 export [[nodiscard]] auto operator-(const Matrix3D& m) noexcept -> Matrix3D;
 
