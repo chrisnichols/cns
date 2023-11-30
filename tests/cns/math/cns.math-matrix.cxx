@@ -57,3 +57,31 @@ SCENARIO("Matrix3D supports multiplication with a column Vector3D") {
         }
     }
 }
+
+SCENARIO("Matrix3D supports multiplication with a Matrix3D") {
+
+    GIVEN("Two matrices composed of column vectors") {
+        const auto a = cns::Vector3D{1.0, 2.0, 3.0};
+        const auto b = cns::Vector3D{4.0, 5.0, 6.0};
+        const auto c = cns::Vector3D{7.0, 8.0, 9.0};
+
+        const auto m1 = cns::Matrix3D{a, b, c};
+        const auto m2 = cns::Matrix3D{b, c, a};
+
+        THEN("The product of the matrices is another matrix") {
+            const auto result = m1 * m2;
+
+            CHECK(66.0 == result(0, 0));
+            CHECK(81.0 == result(1, 0));
+            CHECK(96.0 == result(2, 0));
+
+            CHECK(102.0 == result(0, 1));
+            CHECK(126.0 == result(1, 1));
+            CHECK(150.0 == result(2, 1));
+
+            CHECK(30.0 == result(0, 2));
+            CHECK(36.0 == result(1, 2));
+            CHECK(42.0 == result(2, 2));
+        }
+    }
+}

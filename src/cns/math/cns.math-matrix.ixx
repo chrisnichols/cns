@@ -40,6 +40,13 @@ export class Matrix3D {
     std::array<Vector3D, 3> m_entries;
 };
 
+/// @brief Multiplication between two 3x3 matrices
+/// @param leftM The left Matrix3D
+/// @param rightM The right Matrix3D
+/// @return
+export auto operator*(const Matrix3D& leftM, const Matrix3D& rightM)
+    -> Matrix3D;
+
 /// @brief Multiplication between 3x3 Matrix and 3x1 Vector
 /// @param m The Matrix3D
 /// @param v The column Vector3D
