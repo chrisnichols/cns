@@ -40,6 +40,45 @@ export class Matrix3D {
     std::array<Vector3D, 3> m_entries;
 };
 
+/// @brief Scalar multiplication for a Matrix3D
+/// @param m The Matrix3D
+/// @param s The scalar multiplier
+/// @return
+export [[nodiscard]] auto operator*(const Matrix3D& m, double s) noexcept
+    -> Matrix3D;
+
+/// @brief Scalar multiplication for a Matrix3D
+/// @param s The scalar multiplier
+/// @param m The Matrix3D
+/// @return
+export [[nodiscard]] auto operator*(double s, const Matrix3D& m) noexcept
+    -> Matrix3D;
+
+/// @brief Scalar division for a Matrix3D
+/// @param m The Matrix3D
+/// @param s The scalar divisor
+/// @return
+export [[nodiscard]] auto operator/(const Matrix3D& m, double s) -> Matrix3D;
+
+/// @brief Matrix addition
+/// @param leftM The left Matrix3D
+/// @param rightM The right Matrix3D
+/// @return
+export [[nodiscard]] auto operator+(const Matrix3D& leftM,
+                                    const Matrix3D& rightM) -> Matrix3D;
+
+/// @brief Matrix subtraction
+/// @param leftM The left Matrix3D
+/// @param rightM The right Matrix3D
+/// @return
+export [[nodiscard]] auto operator-(const Matrix3D& leftM,
+                                    const Matrix3D& rightM) -> Matrix3D;
+
+/// @brief Negates a Matrix3D
+/// @param v The Matrix3D
+/// @return
+export [[nodiscard]] auto operator-(const Matrix3D& m) noexcept -> Matrix3D;
+
 /// @brief Multiplication between two 3x3 matrices
 /// @param leftM The left Matrix3D
 /// @param rightM The right Matrix3D

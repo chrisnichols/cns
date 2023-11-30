@@ -101,3 +101,38 @@ SCENARIO("Matrix3D supports multiplication with a Matrix3D") {
         }
     }
 }
+
+SCENARIO("Matrix3D follows the basic properties") {
+    GIVEN("Three matrices and two scalars") {
+        const auto v1 = cns::Vector3D{1.0, 2.0, 3.0};
+        const auto v2 = cns::Vector3D{-3.0, 7.0, -1.0};
+        const auto v3 = cns::Vector3D{5.0, -17.0, -10.0};
+
+        const auto a = cns::Matrix3D{v1, v2, v3};
+        const auto b = cns::Matrix3D{v2, v3, v1};
+        const auto c = cns::Matrix3D{v3, v1, v2};
+
+        const auto s = 3.0;
+        const auto t = -2.0;
+
+        THEN("Associative law for matrix addition") {
+            CHECK((a + b) + c == a + (b + c));
+        }
+
+        THEN("Commutative law for matrix addition") {
+            CHECK(a + b == b + a);
+        }
+
+        THEN("Associative law for scalar-matrix multiplication") {
+            CHECK((s * t) * a == s * (t * a));
+        }
+
+        THEN("Commutative law for scalar-matrix multiplication") {
+            CHECK(t * a == a * t);
+        }
+
+        THEN("Distributive laws for scalar-matrix multiplication") {
+            CHECK((s + t) * a == s * a + t * a);
+        }
+    }
+}

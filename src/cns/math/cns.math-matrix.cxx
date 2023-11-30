@@ -20,6 +20,34 @@ auto Matrix3D::operator[](int column) const -> const Vector3D& {
     return this->m_entries[column];
 }
 
+auto operator*(const Matrix3D& m, const double s) noexcept -> Matrix3D {
+    return {m[0] * s, m[1] * s, m[2] * s};
+}
+
+auto operator*(const double s, const Matrix3D& m) noexcept -> Matrix3D {
+    return m * s;
+}
+
+auto operator/(const Matrix3D& m, const double s) -> Matrix3D {
+    if (s == 0.0) {
+        throw std::domain_error("Divide by 0");
+    }
+
+    return m * (1.0 / s);
+}
+
+auto operator+(const Matrix3D& leftM, const Matrix3D& rightM) -> Matrix3D {
+    return {leftM[0] + rightM[0], leftM[1] + rightM[1], leftM[2] + rightM[2]};
+}
+
+auto operator-(const Matrix3D& leftM, const Matrix3D& rightM) -> Matrix3D {
+    return leftM + (-rightM);
+}
+
+auto operator-(const Matrix3D& m) noexcept -> Matrix3D {
+    return {-m[0], -m[1], -m[2]};
+}
+
 auto operator*(const Matrix3D& leftM, const Matrix3D& rightM) -> Matrix3D {
     return {// First column
             {leftM(0, 0) * rightM(0, 0) + leftM(0, 1) * rightM(1, 0) +
