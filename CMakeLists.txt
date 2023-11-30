@@ -5,6 +5,7 @@ project(CNS VERSION 0.0.1.4)
 set(CMAKE_CXX_STANDARD 20)
 
 # TODO_CMake_3.28: Remove in CMake 3.28
+# Go to https://github.com/Kitware/CMake/blob/v3.27.9/Help/dev/experimental.rst
 set(CMAKE_EXPERIMENTAL_CXX_MODULE_CMAKE_API "aa1f7df0-828a-4fcd-9afc-2dc80491aca7")
 set(CMAKE_EXPERIMENTAL_CXX_MODULE_DYNDEP 1)
 
