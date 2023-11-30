@@ -132,3 +132,34 @@ SCENARIO("Vector3D supports basic operations") {
         }
     }
 }
+
+SCENARIO("Vector3D follows the basic properties") {
+    GIVEN("Three vectors and two scalars") {
+        const auto a = cns::Vector3D{1.0, 2.0, 3.0};
+        const auto b = cns::Vector3D{-3.0, 7.0, -1.0};
+        const auto c = cns::Vector3D{5.0, -17.0, -10.0};
+
+        const auto s = 3.0;
+        const auto t = -2.0;
+
+        THEN("Associative law for vector addition") {
+            CHECK((a + b) + c == a + (b + c));
+        }
+
+        THEN("Commutative law for vector addition") {
+            CHECK(a + b == b + a);
+        }
+
+        THEN("Associative law for scalar-vector multiplication") {
+            CHECK((s * t) * a == s * (t * a));
+        }
+
+        THEN("Commutative law for scalar-vector multiplication") {
+            CHECK(t * a == a * t);
+        }
+
+        THEN("Distributive laws for scalar-vector multiplication") {
+            CHECK((s + t) * a == s * a + t * a);
+        }
+    }
+}
