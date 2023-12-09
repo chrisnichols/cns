@@ -1,20 +1,12 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.28)
 
 project(CNS VERSION 0.0.1.4)
 
 set(CMAKE_CXX_STANDARD 20)
 
-# TODO_CMake_3.28: Remove in CMake 3.28
-# Go to https://github.com/Kitware/CMake/blob/v3.27.9/Help/dev/experimental.rst
-set(CMAKE_EXPERIMENTAL_CXX_MODULE_CMAKE_API "aa1f7df0-828a-4fcd-9afc-2dc80491aca7")
-set(CMAKE_EXPERIMENTAL_CXX_MODULE_DYNDEP 1)
-
 include(CTest)
 
 add_compile_options(-Wall -Wextra -pedantic -Werror)
-
-# TODO_CMake_3.28: Get a compilation error without this. Check in CMake 3.28
-add_compile_options(-Wno-read-modules-implicitly)
 
 if(CMAKE_BUILD_TYPE MATCHES "Debug")
     add_compile_options(
