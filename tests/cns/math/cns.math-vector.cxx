@@ -135,7 +135,7 @@ SCENARIO("Vector3D supports basic operations") {
 
 SCENARIO("Vector3D supports multiplication with a Vector3D") {
 
-    GIVEN("Two vectors") {
+    GIVEN("Two arbitrary vectors") {
         const auto a = cns::Vector3D{1.0, 2.0, 4.0};
         const auto b = cns::Vector3D{-3.0, 7.0, -2.0};
 
@@ -153,12 +153,39 @@ SCENARIO("Vector3D supports multiplication with a Vector3D") {
         }
     }
 
+    GIVEN("Two vectors with an angle less than 90 degrees") {
+        const auto a = cns::Vector3D{2.0, 2.0, 0.0};
+        const auto b = cns::Vector3D{-1.0, 2.0, 0.0};
+
+        THEN("The dot product is positive") {
+            CHECK(cns::dot(a, b) > 0.0);
+        }
+    }
+
     GIVEN("Two parallel vectors") {
         const auto a = cns::Vector3D{1.0, 2.0, 3.0};
         const auto b = cns::Vector3D{2.0, 4.0, 6.0};
 
         THEN("The dot product is the product of the magnitudes") {
             CHECK(cns::magnitude(a) * cns::magnitude(b) == cns::dot(a, b));
+        }
+    }
+
+    GIVEN("Two vectors with an angle greater than 90 degrees") {
+        const auto a = cns::Vector3D{2.0, 2.0, 0.0};
+        const auto b = cns::Vector3D{-2.0, 1.0, 0.0};
+
+        THEN("The dot product is negative") {
+            CHECK(cns::dot(a, b) < 0.0);
+        }
+    }
+
+    GIVEN("Two anti-parallel vectors") {
+        const auto a = cns::Vector3D{1.0, 2.0, 3.0};
+        const auto b = cns::Vector3D{-2.0, -4.0, -6.0};
+
+        THEN("The dot product is the negative product of the magnitudes") {
+            CHECK(-cns ::magnitude(a) * cns::magnitude(b) == cns::dot(a, b));
         }
     }
 }
