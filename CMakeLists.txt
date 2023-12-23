@@ -8,6 +8,10 @@ include(CTest)
 
 add_compile_options(-Wall -Wextra -pedantic -Werror)
 
+# Enable experimental library features for parallel algorithms
+# See https://libcxx.llvm.org/UsingLibcxx.html
+add_compile_options(-fexperimental-library)
+
 if(CMAKE_BUILD_TYPE MATCHES "Debug")
     add_compile_options(
         -fsanitize=undefined
