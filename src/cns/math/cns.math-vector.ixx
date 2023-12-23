@@ -86,4 +86,10 @@ export [[nodiscard]] auto magnitude(const Vector3D& v) noexcept -> double;
 /// @param v The Vector3D
 /// @return
 export [[nodiscard]] auto normalize(const Vector3D& v) -> Vector3D;
+
+/// @brief Calculates the dot product (scalar product) between two vectors
+/// @param leftV The left Vector3D
+/// @param rightV The right Vector3D
+/// @return
+export [[nodiscard]] auto dot(const Vector3D& leftV, const Vector3D& rightV) noexcept -> double;
 } // namespace cns

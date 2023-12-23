@@ -62,4 +62,8 @@ auto magnitude(const Vector3D& v) noexcept -> double {
 auto normalize(const Vector3D& v) -> Vector3D {
     return v / magnitude(v);
 }
+
+auto dot(const Vector3D& leftV, const Vector3D& rightV) noexcept -> double {
+    return leftV.x() * rightV.x() + leftV.y() * rightV.y() + leftV.z() * rightV.z();
+}
 } // namespace cns

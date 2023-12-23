@@ -133,7 +133,38 @@ SCENARIO("Vector3D supports basic operations") {
     }
 }
 
+SCENARIO("Vector3D supports multiplication with a Vector3D") {
+
+    GIVEN("Two vectors") {
+        const auto a = cns::Vector3D{1.0, 2.0, 4.0};
+        const auto b = cns::Vector3D{-3.0, 7.0, -2.0};
+
+        THEN("The dot product of two vectors is a scalar") {
+            CHECK(3.0 == cns::dot(a, b));
+        }
+    }
+
+    GIVEN("Two orthogonal vectors") {
+        const auto a = cns::Vector3D{2.0, 2.0, 0.0};
+        const auto b = cns::Vector3D{-1.0, 1.0, 0.0};
+
+        THEN("The dot product is 0") {
+            CHECK(0.0 == cns::dot(a, b));
+        }
+    }
+
+    GIVEN("Two parallel vectors") {
+        const auto a = cns::Vector3D{1.0, 2.0, 3.0};
+        const auto b = cns::Vector3D{2.0, 4.0, 6.0};
+
+        THEN("The dot product is the product of the magnitudes") {
+            CHECK(cns::magnitude(a) * cns::magnitude(b) == cns::dot(a, b));
+        }
+    }
+}
+
 SCENARIO("Vector3D follows the basic properties") {
+
     GIVEN("Three vectors and two scalars") {
         const auto a = cns::Vector3D{1.0, 2.0, 3.0};
         const auto b = cns::Vector3D{-3.0, 7.0, -1.0};
@@ -161,6 +192,18 @@ SCENARIO("Vector3D follows the basic properties") {
         THEN("Distributive laws for scalar-vector multiplication") {
             CHECK(s * (a + b) == s * a + s * b);
             CHECK((s + t) * a == s * a + t * a);
+        }
+
+        THEN("Commutative law for the dot product") {
+            CHECK(dot(a, b) == dot(b, a));
+        }
+
+        THEN("Distributive law for the dot product") {
+            CHECK(dot(a, b + c) == dot(a, b) + dot(a, c));
+        }
+
+        THEN("Scalar factorization for the dot product") {
+            CHECK(dot(t * a, b) == t * dot(a, b));
         }
     }
 }
