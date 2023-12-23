@@ -46,15 +46,13 @@ export class Vector3D {
 /// @param v The Vector3D
 /// @param s The scalar multiplier
 /// @return
-export [[nodiscard]] auto operator*(const Vector3D& v, double s) noexcept
-    -> Vector3D;
+export [[nodiscard]] auto operator*(const Vector3D& v, double s) noexcept -> Vector3D;
 
 /// @brief Scalar multiplication for a Vector3D
 /// @param s The scalar multiplier
 /// @param v The Vector3D
 /// @return
-export [[nodiscard]] auto operator*(double s, const Vector3D& v) noexcept
-    -> Vector3D;
+export [[nodiscard]] auto operator*(double s, const Vector3D& v) noexcept -> Vector3D;
 
 /// @brief Scalar division for a Vector3D
 /// @param v The Vector3D
@@ -66,15 +64,13 @@ export [[nodiscard]] auto operator/(const Vector3D& v, double s) -> Vector3D;
 /// @param leftV The left Vector3D
 /// @param rightV The right Vector3D
 /// @return
-export [[nodiscard]] auto operator+(const Vector3D& leftV,
-                                    const Vector3D& rightV) -> Vector3D;
+export [[nodiscard]] auto operator+(const Vector3D& leftV, const Vector3D& rightV) -> Vector3D;
 
 /// @brief Vector subtraction
 /// @param leftV The left Vector3D
 /// @param rightV The right Vector3D
 /// @return
-export [[nodiscard]] auto operator-(const Vector3D& leftV,
-                                    const Vector3D& rightV) -> Vector3D;
+export [[nodiscard]] auto operator-(const Vector3D& leftV, const Vector3D& rightV) -> Vector3D;
 
 /// @brief Negates a Vector3D
 /// @param v The Vector3D

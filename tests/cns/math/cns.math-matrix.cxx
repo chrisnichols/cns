@@ -7,8 +7,7 @@ import cns;
 SCENARIO("Matrix3D supports basic operations") {
 
     GIVEN("A matrix") {
-        const auto m =
-            cns::Matrix3D{{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+        const auto m = cns::Matrix3D{{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
 
         THEN("The matrix has been initialized") {
             CHECK(m[0][0] == 1.0);
@@ -151,8 +150,7 @@ SCENARIO("Matrix3D follows the basic properties") {
         }
 
         THEN("Product rule for matrix transpose") {
-            CHECK(cns::transpose(a * b) ==
-                  cns::transpose(b) * cns::transpose(a));
+            CHECK(cns::transpose(a * b) == cns::transpose(b) * cns::transpose(a));
         }
     }
 }

@@ -16,16 +16,15 @@ export class Matrix3D {
     /// @param column0
     /// @param column1
     /// @param column2
-    Matrix3D(const Vector3D& column0, const Vector3D& column1,
-             const Vector3D& column2) noexcept;
+    Matrix3D(const Vector3D& column0, const Vector3D& column1, const Vector3D& column2) noexcept;
 
     /// @brief Defaulted Three-Way Comparison operator
     /// @param m Another Matrix3D
     /// @return
     auto operator<=>(const Matrix3D& m) const = default;
 
-    /// @brief Matrix index operator. Access the elements in the normal m(i, j)
-    /// form.
+    /// @brief Matrix index operator. Access the elements in the normal m(row,
+    /// col) form.
     /// @param row Row index
     /// @param column Column index
     /// @return
@@ -44,15 +43,13 @@ export class Matrix3D {
 /// @param m The Matrix3D
 /// @param s The scalar multiplier
 /// @return
-export [[nodiscard]] auto operator*(const Matrix3D& m, double s) noexcept
-    -> Matrix3D;
+export [[nodiscard]] auto operator*(const Matrix3D& m, double s) noexcept -> Matrix3D;
 
 /// @brief Scalar multiplication for a Matrix3D
 /// @param s The scalar multiplier
 /// @param m The Matrix3D
 /// @return
-export [[nodiscard]] auto operator*(double s, const Matrix3D& m) noexcept
-    -> Matrix3D;
+export [[nodiscard]] auto operator*(double s, const Matrix3D& m) noexcept -> Matrix3D;
 
 /// @brief Scalar division for a Matrix3D
 /// @param m The Matrix3D
@@ -64,15 +61,13 @@ export [[nodiscard]] auto operator/(const Matrix3D& m, double s) -> Matrix3D;
 /// @param leftM The left Matrix3D
 /// @param rightM The right Matrix3D
 /// @return
-export [[nodiscard]] auto operator+(const Matrix3D& leftM,
-                                    const Matrix3D& rightM) -> Matrix3D;
+export [[nodiscard]] auto operator+(const Matrix3D& leftM, const Matrix3D& rightM) -> Matrix3D;
 
 /// @brief Matrix subtraction
 /// @param leftM The left Matrix3D
 /// @param rightM The right Matrix3D
 /// @return
-export [[nodiscard]] auto operator-(const Matrix3D& leftM,
-                                    const Matrix3D& rightM) -> Matrix3D;
+export [[nodiscard]] auto operator-(const Matrix3D& leftM, const Matrix3D& rightM) -> Matrix3D;
 
 /// @brief Negates a Matrix3D
 /// @param m The Matrix3D
@@ -83,8 +78,7 @@ export [[nodiscard]] auto operator-(const Matrix3D& m) noexcept -> Matrix3D;
 /// @param leftM The left Matrix3D
 /// @param rightM The right Matrix3D
 /// @return
-export auto operator*(const Matrix3D& leftM, const Matrix3D& rightM)
-    -> Matrix3D;
+export auto operator*(const Matrix3D& leftM, const Matrix3D& rightM) -> Matrix3D;
 
 /// @brief Multiplication between 3x3 Matrix and 3x1 Vector
 /// @param m The Matrix3D
