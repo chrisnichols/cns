@@ -23,7 +23,7 @@ SCENARIO("Matrix3D supports basic operations") {
             CHECK(m[2][2] == 9.0);
         }
 
-        THEN("The matrix can be indexed normally or in column-major order") {
+        THEN("The matrix can be indexed in row- or column-major order") {
             CHECK(m[0][0] == m(0, 0));
             CHECK(m[0][1] == m(1, 0));
             CHECK(m[0][2] == m(2, 0));
