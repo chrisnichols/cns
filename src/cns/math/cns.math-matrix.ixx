@@ -9,7 +9,7 @@ export import :vector;
 
 namespace cns {
 
-/// @brief 3x3 Matrix in column-major order
+/// @brief 3x3 Matrix in row-major order
 export class Matrix3D {
   public:
     /// @brief Constructs a Matrix3D with the specified elements
