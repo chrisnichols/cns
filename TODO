@@ -11,6 +11,7 @@ Coding ideas. Add when they are needed!
 	* cow_ptr
 	* scope_exit, scope_fail, scope_success
 	* unique_resource
+	* polymorphic_value
 * cns.concurrency (core?)
 	* thread safe queue
 	* thread pool
