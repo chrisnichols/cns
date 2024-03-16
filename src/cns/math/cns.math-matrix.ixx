@@ -12,10 +12,23 @@ namespace cns {
 /// @brief 3x3 Matrix in column-major order
 export class Matrix3D {
   public:
+    /// @brief Constructs a Matrix3D with the specified elements
+    /// @param a00 Row 0 Column 0
+    /// @param a01 Row 0 Column 1
+    /// @param a02 Row 0 Column 2
+    /// @param a10 Row 1 Column 0
+    /// @param a11 Row 1 Column 1
+    /// @param a12 Row 1 Column 2
+    /// @param a20 Row 2 Column 0
+    /// @param a21 Row 2 Column 1
+    /// @param a22 Row 2 Column 2
+    Matrix3D(double a00, double a01, double a02, double a10, double a11, double a12, double a20,
+             double a21, double a22) noexcept;
+
     /// @brief Constructs a Matrix3D with the specified column vectors
-    /// @param column0
-    /// @param column1
-    /// @param column2
+    /// @param column0 Column 0
+    /// @param column1 Column 1
+    /// @param column2 Column 2
     Matrix3D(const Vector3D& column0, const Vector3D& column1, const Vector3D& column2) noexcept;
 
     /// @brief Defaulted Three-Way Comparison operator
@@ -23,20 +36,20 @@ export class Matrix3D {
     /// @return
     auto operator<=>(const Matrix3D& m) const = default;
 
-    /// @brief Matrix index operator. Access the elements in the normal m(row,
-    /// col) form.
+    /// @brief Matrix index operator.
     /// @param row Row index
     /// @param column Column index
-    /// @return
-    [[nodiscard]] auto operator()(int row, int column) const -> double;
+    /// @return The element at position (row, column)
+    [[nodiscard]] auto operator[](int row, int column) const -> double;
 
-    /// @brief Column index operator.
+    /// @brief Matrix index operator.
+    /// @param row Row index
     /// @param column Column index
-    /// @return The column Vector3D
-    [[nodiscard]] auto operator[](int column) const -> const Vector3D&;
+    /// @return The element at position (row, column)
+    [[nodiscard]] auto operator[](int row, int column) -> double&;
 
   private:
-    std::array<Vector3D, 3> m_entries;
+    std::array<double, 9> m_entries;
 };
 
 /// @brief Scalar multiplication for a Matrix3D
