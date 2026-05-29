@@ -7,7 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(CTest)
 
-add_compile_options(-Wall -Wextra -pedantic -Werror)
+# -pedantic is disabled until https://github.com/catchorg/Catch2/issues/3076 is resolved
+#add_compile_options(-Wall -Wextra -pedantic -Werror)
+add_compile_options(-Wall -Wextra -Werror)
 
 # Enable experimental library features for parallel algorithms
 # See https://libcxx.llvm.org/UsingLibcxx.html
