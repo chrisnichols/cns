@@ -55,13 +55,13 @@ export class Matrix3D {
 /// @param m The Matrix3D
 /// @param s The scalar multiplier
 /// @return
-export [[nodiscard]] auto operator*(const Matrix3D& m, double s) noexcept -> Matrix3D;
+export [[nodiscard]] auto operator*(const Matrix3D& m, double s) -> Matrix3D;
 
 /// @brief Scalar multiplication for a Matrix3D
 /// @param s The scalar multiplier
 /// @param m The Matrix3D
 /// @return
-export [[nodiscard]] auto operator*(double s, const Matrix3D& m) noexcept -> Matrix3D;
+export [[nodiscard]] auto operator*(double s, const Matrix3D& m) -> Matrix3D;
 
 /// @brief Scalar division for a Matrix3D
 /// @param m The Matrix3D
@@ -84,7 +84,7 @@ export [[nodiscard]] auto operator-(const Matrix3D& leftM, const Matrix3D& right
 /// @brief Negates a Matrix3D
 /// @param m The Matrix3D
 /// @return
-export [[nodiscard]] auto operator-(const Matrix3D& m) noexcept -> Matrix3D;
+export [[nodiscard]] auto operator-(const Matrix3D& m) -> Matrix3D;
 
 /// @brief Multiplication between two 3x3 matrices
 /// @param leftM The left Matrix3D
