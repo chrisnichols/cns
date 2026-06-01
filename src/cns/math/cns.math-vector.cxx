@@ -12,7 +12,7 @@ Vector3D::Vector3D(const double x, const double y, const double z) noexcept
 }
 
 auto Vector3D::operator[](int i) const -> double {
-    return this->m_components[i];
+    return this->m_components.at(i);
 }
 
 auto Vector3D::x() const noexcept -> double {
@@ -56,7 +56,7 @@ auto operator-(const Vector3D& v) noexcept -> Vector3D {
 }
 
 auto magnitude(const Vector3D& v) noexcept -> double {
-    return std::sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z());
+    return std::sqrt((v.x() * v.x()) + (v.y() * v.y()) + (v.z() * v.z()));
 }
 
 auto normalize(const Vector3D& v) -> Vector3D {
@@ -64,6 +64,6 @@ auto normalize(const Vector3D& v) -> Vector3D {
 }
 
 auto dot(const Vector3D& leftV, const Vector3D& rightV) noexcept -> double {
-    return leftV.x() * rightV.x() + leftV.y() * rightV.y() + leftV.z() * rightV.z();
+    return (leftV.x() * rightV.x()) + (leftV.y() * rightV.y()) + (leftV.z() * rightV.z());
 }
 } // namespace cns
