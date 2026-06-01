@@ -48,7 +48,8 @@ export class Matrix3D {
     [[nodiscard]] auto operator[](int row, int column) -> double&;
 
   private:
-    std::array<double, 9> m_entries;
+    static constexpr size_t num_elements = 9;
+    std::array<double, num_elements> m_entries;
 };
 
 /// @brief Scalar multiplication for a Matrix3D
