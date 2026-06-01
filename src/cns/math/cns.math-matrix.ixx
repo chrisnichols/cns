@@ -1,7 +1,6 @@
 module;
 
 #include <array>
-#include <compare>
 
 export module cns.math:matrix;
 
