@@ -3,8 +3,9 @@
     "args": []
   },
   "files.associations": {
-    "*.in": "cpp",
+    "*.cxx": "cpp",
     "*.ixx": "cpp"
   },
+  //"C_Cpp.loggingLevel": "Debug",
   "C_Cpp.codeAnalysis.clangTidy.enabled": true
 }
