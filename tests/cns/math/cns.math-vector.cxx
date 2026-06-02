@@ -242,13 +242,27 @@ SCENARIO("Vector3D follows the basic properties") {
             CHECK(cross(a, b) == cross(-b, a));
         }
 
-        THEN("Dsitributive law for the cross product") {
+        THEN("Distributive law for the cross product") {
             CHECK(cross(a, b + c) == cross(a, b) + cross(a, c));
         }
 
         THEN("Scalar factorization for the cross product") {
             CHECK(cross(s * a, b) == cross(a, s * b));
             CHECK(cross(s * a, b) == s * cross(a, b));
+        }
+
+        THEN("Vector Triple Product") {
+            CHECK(cross(a, cross(b, c)) == (b * dot(a, c)) - (c * dot(a, b)));
+        }
+
+        THEN("Lagrange's Identity") {
+            CHECK(dot(cross(a, b), cross(a, b)) ==
+                  (dot(a, a) * dot(b, b)) - (dot(a, b) * dot(a, b)));
+        }
+
+        THEN("Scalar Triple Product") {
+            CHECK(dot(cross(a, b), c) == dot(cross(b, c), a));
+            CHECK(dot(cross(a, b), c) == dot(cross(c, a), b));
         }
     }
 }
