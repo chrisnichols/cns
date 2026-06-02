@@ -72,4 +72,12 @@ auto cross(const Vector3D& leftV, const Vector3D& rightV) noexcept -> Vector3D {
             (leftV.z() * rightV.x()) - (leftV.x() * rightV.z()),
             (leftV.x() * rightV.y()) - (leftV.y() * rightV.x())};
 }
+
+auto project(const Vector3D& a, const Vector3D& b) noexcept -> Vector3D {
+    return b * (dot(a, b) / dot(b, b));
+}
+
+auto reject(const Vector3D& a, const Vector3D& b) noexcept -> Vector3D {
+    return a - project(a, b);
+}
 } // namespace cns

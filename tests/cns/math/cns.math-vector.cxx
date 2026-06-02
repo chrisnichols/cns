@@ -264,5 +264,12 @@ SCENARIO("Vector3D follows the basic properties") {
             CHECK(dot(cross(a, b), c) == dot(cross(b, c), a));
             CHECK(dot(cross(a, b), c) == dot(cross(c, a), b));
         }
+
+        THEN("A vector is equal to the sum of its projection onto and rejection from another "
+             "vector") {
+            CHECK(a == project(a, b) + reject(a, b));
+            CHECK(b == project(b, c) + reject(b, c));
+            CHECK(c == project(c, a) + reject(c, a));
+        }
     }
 }

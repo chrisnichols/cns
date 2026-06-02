@@ -97,4 +97,16 @@ export [[nodiscard]] auto dot(const Vector3D& leftV, const Vector3D& rightV) noe
 /// @param rightV The right Vector3D
 /// @return
 export [[nodiscard]] auto cross(const Vector3D& leftV, const Vector3D& rightV) noexcept -> Vector3D;
+
+/// @brief Calculates the projection of a onto b
+/// @param a The Vector3D being projected onto b
+/// @param b The Vector3D onto which a is being projected
+/// @return
+export [[nodiscard]] auto project(const Vector3D& a, const Vector3D& b) noexcept -> Vector3D;
+
+/// @brief Calculates the rejection of a from b
+/// @param a The Vector3D to be rejected from b
+/// @param b The Vector3D from which a is being rejected
+/// @return
+export [[nodiscard]] auto reject(const Vector3D& a, const Vector3D& b) noexcept -> Vector3D;
 } // namespace cns
