@@ -235,6 +235,7 @@ SCENARIO("Vector3D follows the basic properties") {
 
         THEN("Cross product of parallel vectors is 0") {
             CHECK(cross(a, s * a) == cns::Vector3D{0, 0, 0});
+            CHECK(cross(a, t * a) == cns::Vector3D{0, 0, 0});
         }
 
         THEN("Anticommutativity of the cross product") {
