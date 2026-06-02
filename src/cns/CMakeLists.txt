@@ -7,6 +7,8 @@ target_sources(
             math/cns.math.ixx
             math/cns.math-vector.ixx
             math/cns.math-matrix.ixx
+            format/cns.format.ixx
+            format/cns.format-math.ixx
     PRIVATE
         math/cns.math-vector.cxx
         math/cns.math-matrix.cxx
