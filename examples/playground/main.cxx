@@ -20,6 +20,9 @@ auto main() -> int {
         std::println("b1 = {}", b1);
         const auto c1 = cns::project(c, a) + cns::reject(c, a);
         std::println("c1 = {}", c1);
+
+        const auto m = cns::Matrix3D{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0};
+        std::println("m = {}", m);
     } catch (...) {
         return -1;
     }
