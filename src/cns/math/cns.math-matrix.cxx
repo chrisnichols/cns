@@ -8,7 +8,7 @@ namespace cns {
 
 Matrix3D::Matrix3D(double a00, double a01, double a02, double a10, double a11, double a12,
                    double a20, double a21, double a22) noexcept
-    : m_entries{a00, a01, a02, a10, a11, a12, a20, a21, a22} {
+    : m_data{{{{a00, a01, a02}}, {{a10, a11, a12}}, {{a20, a21, a22}}}} {
 }
 
 Matrix3D::Matrix3D(const Vector3D& column0, const Vector3D& column1,
@@ -18,11 +18,11 @@ Matrix3D::Matrix3D(const Vector3D& column0, const Vector3D& column1,
 }
 
 auto Matrix3D::operator[](int row, int column) const -> double {
-    return this->m_entries.at((row * 3) + column);
+    return this->m_data.at(row).at(column);
 }
 
 auto Matrix3D::operator[](int row, int column) -> double& {
-    return this->m_entries.at((row * 3) + column);
+    return this->m_data.at(row).at(column);
 }
 
 auto operator*(const Matrix3D& m, const double s) -> Matrix3D {
