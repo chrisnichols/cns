@@ -232,5 +232,22 @@ SCENARIO("Vector3D follows the basic properties") {
         THEN("Scalar factorization for the dot product") {
             CHECK(dot(t * a, b) == t * dot(a, b));
         }
+
+        THEN("Cross product of parallel vectors is 0") {
+            CHECK(cross(a, s * a) == cns::Vector3D{0, 0, 0});
+        }
+
+        THEN("Anticommutativity of the cross product") {
+            CHECK(cross(a, b) == cross(-b, a));
+        }
+
+        THEN("Dsitributive law for the cross product") {
+            CHECK(cross(a, b + c) == cross(a, b) + cross(a, c));
+        }
+
+        THEN("Scalar factorization for the cross product") {
+            CHECK(cross(s * a, b) == cross(a, s * b));
+            CHECK(cross(s * a, b) == s * cross(a, b));
+        }
     }
 }

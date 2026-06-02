@@ -91,4 +91,10 @@ export [[nodiscard]] auto normalize(const Vector3D& v) -> Vector3D;
 /// @param rightV The right Vector3D
 /// @return
 export [[nodiscard]] auto dot(const Vector3D& leftV, const Vector3D& rightV) noexcept -> double;
+
+/// @brief Calculates the cross product (vector product) between two vectors
+/// @param leftV The left Vector3D
+/// @param rightV The right Vector3D
+/// @return
+export [[nodiscard]] auto cross(const Vector3D& leftV, const Vector3D& rightV) noexcept -> Vector3D;
 } // namespace cns

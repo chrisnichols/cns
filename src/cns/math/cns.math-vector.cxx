@@ -66,4 +66,10 @@ auto normalize(const Vector3D& v) -> Vector3D {
 auto dot(const Vector3D& leftV, const Vector3D& rightV) noexcept -> double {
     return (leftV.x() * rightV.x()) + (leftV.y() * rightV.y()) + (leftV.z() * rightV.z());
 }
+
+auto cross(const Vector3D& leftV, const Vector3D& rightV) noexcept -> Vector3D {
+    return {(leftV.y() * rightV.z()) - (leftV.z() * rightV.y()),
+            (leftV.z() * rightV.x()) - (leftV.x() * rightV.z()),
+            (leftV.x() * rightV.y()) - (leftV.y() * rightV.x())};
+}
 } // namespace cns
