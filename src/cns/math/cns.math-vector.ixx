@@ -60,16 +60,16 @@ export [[nodiscard]] auto operator*(double s, const Vector3D& v) noexcept -> Vec
 export [[nodiscard]] auto operator/(const Vector3D& v, double s) -> Vector3D;
 
 /// @brief Vector addition
-/// @param leftV The left Vector3D
-/// @param rightV The right Vector3D
+/// @param a The left Vector3D
+/// @param b The right Vector3D
 /// @return
-export [[nodiscard]] auto operator+(const Vector3D& leftV, const Vector3D& rightV) -> Vector3D;
+export [[nodiscard]] auto operator+(const Vector3D& a, const Vector3D& b) -> Vector3D;
 
 /// @brief Vector subtraction
-/// @param leftV The left Vector3D
-/// @param rightV The right Vector3D
+/// @param a The left Vector3D
+/// @param b The right Vector3D
 /// @return
-export [[nodiscard]] auto operator-(const Vector3D& leftV, const Vector3D& rightV) -> Vector3D;
+export [[nodiscard]] auto operator-(const Vector3D& a, const Vector3D& b) -> Vector3D;
 
 /// @brief Negates a Vector3D
 /// @param v The Vector3D
@@ -87,16 +87,16 @@ export [[nodiscard]] auto magnitude(const Vector3D& v) noexcept -> double;
 export [[nodiscard]] auto normalize(const Vector3D& v) -> Vector3D;
 
 /// @brief Calculates the dot product (scalar product) between two vectors
-/// @param leftV The left Vector3D
-/// @param rightV The right Vector3D
+/// @param a The left Vector3D
+/// @param b The right Vector3D
 /// @return
-export [[nodiscard]] auto dot(const Vector3D& leftV, const Vector3D& rightV) noexcept -> double;
+export [[nodiscard]] auto dot(const Vector3D& a, const Vector3D& b) noexcept -> double;
 
 /// @brief Calculates the cross product (vector product) between two vectors
-/// @param leftV The left Vector3D
-/// @param rightV The right Vector3D
+/// @param a The left Vector3D
+/// @param b The right Vector3D
 /// @return
-export [[nodiscard]] auto cross(const Vector3D& leftV, const Vector3D& rightV) noexcept -> Vector3D;
+export [[nodiscard]] auto cross(const Vector3D& a, const Vector3D& b) noexcept -> Vector3D;
 
 /// @brief Calculates the projection of a onto b
 /// @param a The Vector3D being projected onto b

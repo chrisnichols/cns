@@ -43,12 +43,12 @@ auto operator/(const Vector3D& v, const double s) -> Vector3D {
     return v * (1.0 / s);
 }
 
-auto operator+(const Vector3D& leftV, const Vector3D& rightV) -> Vector3D {
-    return {leftV.x() + rightV.x(), leftV.y() + rightV.y(), leftV.z() + rightV.z()};
+auto operator+(const Vector3D& a, const Vector3D& b) -> Vector3D {
+    return {a.x() + b.x(), a.y() + b.y(), a.z() + b.z()};
 }
 
-auto operator-(const Vector3D& leftV, const Vector3D& rightV) -> Vector3D {
-    return leftV + (-rightV);
+auto operator-(const Vector3D& a, const Vector3D& b) -> Vector3D {
+    return a + (-b);
 }
 
 auto operator-(const Vector3D& v) noexcept -> Vector3D {
@@ -63,14 +63,13 @@ auto normalize(const Vector3D& v) -> Vector3D {
     return v / magnitude(v);
 }
 
-auto dot(const Vector3D& leftV, const Vector3D& rightV) noexcept -> double {
-    return (leftV.x() * rightV.x()) + (leftV.y() * rightV.y()) + (leftV.z() * rightV.z());
+auto dot(const Vector3D& a, const Vector3D& b) noexcept -> double {
+    return (a.x() * b.x()) + (a.y() * b.y()) + (a.z() * b.z());
 }
 
-auto cross(const Vector3D& leftV, const Vector3D& rightV) noexcept -> Vector3D {
-    return {(leftV.y() * rightV.z()) - (leftV.z() * rightV.y()),
-            (leftV.z() * rightV.x()) - (leftV.x() * rightV.z()),
-            (leftV.x() * rightV.y()) - (leftV.y() * rightV.x())};
+auto cross(const Vector3D& a, const Vector3D& b) noexcept -> Vector3D {
+    return {(a.y() * b.z()) - (a.z() * b.y()), (a.z() * b.x()) - (a.x() * b.z()),
+            (a.x() * b.y()) - (a.y() * b.x())};
 }
 
 auto project(const Vector3D& a, const Vector3D& b) noexcept -> Vector3D {
