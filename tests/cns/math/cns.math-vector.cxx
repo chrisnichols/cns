@@ -270,7 +270,7 @@ SCENARIO("Vector3D follows the basic properties") {
             CHECK(a == project(a, b) + reject(a, b));
             CHECK(b == project(b, c) + reject(b, c));
             // TODO: Needs a tolerable comparison
-            // CHECK(c == project(c, a) + reject(c, a));
+            CHECK(c == project(c, a) + reject(c, a));
         }
     }
 }
