@@ -4,7 +4,7 @@
 
 import cns;
 
-SCENARIO("Matrix3D supports basic operations") {
+SCENARIO("Matrix3D operations") {
 
     GIVEN("A matrix") {
         const auto m = cns::Matrix3D{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0};
@@ -41,7 +41,7 @@ SCENARIO("Matrix3D supports basic operations") {
     }
 }
 
-SCENARIO("Matrix3D supports multiplication with a column Vector3D") {
+SCENARIO("Matrix3D multiplication with Vector3D") {
 
     GIVEN("A matrix") {
         const auto a = cns::Vector3D{1.0, 2.0, 3.0};
@@ -59,7 +59,7 @@ SCENARIO("Matrix3D supports multiplication with a column Vector3D") {
     }
 }
 
-SCENARIO("Matrix3D supports multiplication with a Matrix3D") {
+SCENARIO("Matrix3D multiplication Matrix3D") {
 
     GIVEN("Two matrices composed of column vectors") {
         const auto a = cns::Vector3D{1.0, 2.0, 3.0};
@@ -87,7 +87,7 @@ SCENARIO("Matrix3D supports multiplication with a Matrix3D") {
     }
 }
 
-SCENARIO("Matrix3D follows the basic properties") {
+SCENARIO("Matrix3D properties") {
     GIVEN("Three matrices and two scalars") {
         const auto v1 = cns::Vector3D{1.0, 2.0, 3.0};
         const auto v2 = cns::Vector3D{-3.0, 7.0, -1.0};

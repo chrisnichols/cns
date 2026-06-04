@@ -4,7 +4,7 @@
 
 import cns;
 
-SCENARIO("Vector3D supports basic operations") {
+SCENARIO("Vector3D operations") {
 
     GIVEN("A vector") {
         const auto v = cns::Vector3D{3.0, 1.0, 2.0};
@@ -133,7 +133,7 @@ SCENARIO("Vector3D supports basic operations") {
     }
 }
 
-SCENARIO("Vector3D supports multiplication with a Vector3D") {
+SCENARIO("Vector3D multiplication") {
 
     GIVEN("Two arbitrary vectors") {
         const auto a = cns::Vector3D{1.0, 2.0, 4.0};
@@ -190,7 +190,7 @@ SCENARIO("Vector3D supports multiplication with a Vector3D") {
     }
 }
 
-SCENARIO("Vector3D follows the basic properties") {
+SCENARIO("Vector3D properties") {
 
     GIVEN("Three vectors and two scalars") {
         const auto a = cns::Vector3D{1.0, 2.0, 3.0};
@@ -220,6 +220,18 @@ SCENARIO("Vector3D follows the basic properties") {
             CHECK(s * (a + b) == s * a + s * b);
             CHECK((s + t) * a == s * a + t * a);
         }
+    }
+}
+
+SCENARIO("Vector3D dot and cross product") {
+
+    GIVEN("Three vectors and two scalars") {
+        const auto a = cns::Vector3D{1.0, 2.0, 3.0};
+        const auto b = cns::Vector3D{-3.0, 7.0, -1.0};
+        const auto c = cns::Vector3D{5.0, -17.0, -10.0};
+
+        const auto s = 3.0;
+        const auto t = -2.0;
 
         THEN("Commutative law for the dot product") {
             CHECK(dot(a, b) == dot(b, a));
