@@ -24,7 +24,7 @@ SCENARIO("Matrix3D operations") {
         }
 
         THEN("The matrix can be transposed") {
-            const auto t = cns::transpose(m);
+            const auto t = transpose(m);
 
             CHECK(m[0, 0] == t[0, 0]);
             CHECK(m[0, 1] == t[1, 0]);
@@ -136,7 +136,7 @@ SCENARIO("Matrix3D properties") {
         }
 
         THEN("Product rule for matrix transpose") {
-            CHECK(cns::transpose(a * b) == cns::transpose(b) * cns::transpose(a));
+            CHECK(transpose(a * b) == transpose(b) * transpose(a));
         }
     }
 }
@@ -150,26 +150,29 @@ SCENARIO("Matrix3D determinant") {
         const auto t = 3.0;
 
         THEN("Determinant of the identity is 1.0") {
-            CHECK(1.0 == cns::determinant(i));
+            CHECK(1.0 == determinant(i));
         }
 
         THEN("Determinant of a matrix is eaual to the determinant of its transpose") {
-            CHECK(cns::determinant(a) == cns::determinant(cns::transpose(a)));
-            CHECK(cns::determinant(b) == cns::determinant(cns::transpose(b)));
+            CHECK(determinant(a) == determinant(transpose(a)));
+            CHECK(determinant(b) == determinant(transpose(b)));
         }
 
-        THEN("Determinant of a matrix is equal to 1 over the determinant of its inverse") {
+        THEN("Determinant of the inverse of a matrix is equal to 1 over the determinant of the "
+             "matrix") {
             // TODO
+            // CHECK(determinant(inverse(a)) == (1.0 / determinant(a)));
+            // CHECK(determinant(inverse(b)) == (1.0 / determinant(b)));
         }
 
         THEN("Determinant of a product is equal to the product of determinants") {
-            CHECK(cns::determinant(a * b) == (cns::determinant(a) * cns::determinant(b)));
+            CHECK(determinant(a * b) == (determinant(a) * determinant(b)));
         }
 
         THEN("Determinant of a scalar times a matrix is equal to the scalar to the nth power times "
              "the determinant of the matrix") {
-            CHECK(cns::determinant(t * a) == (std::pow(t, 3) * cns::determinant(a)));
-            CHECK(cns::determinant(t * b) == (std::pow(t, 3) * cns::determinant(b)));
+            CHECK(determinant(t * a) == (std::pow(t, 3) * determinant(a)));
+            CHECK(determinant(t * b) == (std::pow(t, 3) * determinant(b)));
         }
     }
 }
