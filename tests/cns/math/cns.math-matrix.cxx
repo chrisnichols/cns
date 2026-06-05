@@ -140,3 +140,36 @@ SCENARIO("Matrix3D properties") {
         }
     }
 }
+
+SCENARIO("Matrix3D determinant") {
+    GIVEN("The identity matrix, two matrices, and a scalar") {
+        const auto i = cns::Matrix3D{1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0};
+        const auto a = cns::Matrix3D{1.0, 7.0, 2.0, 5.0, 2.0, 1.0, 3.0, 6.0, 9.0};
+        const auto b = cns::Matrix3D{-4.0, 2.0, 3.0, -5.0, 5.0, 2.0, 7.0, -4.0, 3.0};
+
+        const auto t = 3.0;
+
+        THEN("Determinant of the identity is 1.0") {
+            CHECK(1.0 == cns::determinant(i));
+        }
+
+        THEN("Determinant of a matrix is eaual to the determinant of its transpose") {
+            CHECK(cns::determinant(a) == cns::determinant(cns::transpose(a)));
+            CHECK(cns::determinant(b) == cns::determinant(cns::transpose(b)));
+        }
+
+        THEN("Determinant of a matrix is equal to 1 over the determinant of its inverse") {
+            // TODO
+        }
+
+        THEN("Determinant of a product is equal to the product of determinants") {
+            CHECK(cns::determinant(a * b) == (cns::determinant(a) * cns::determinant(b)));
+        }
+
+        THEN("Determinant of a scalar times a matrix is equal to the scalar to the nth power times "
+             "the determinant of the matrix") {
+            CHECK(cns::determinant(t * a) == (std::pow(t, 3) * cns::determinant(a)));
+            CHECK(cns::determinant(t * b) == (std::pow(t, 3) * cns::determinant(b)));
+        }
+    }
+}

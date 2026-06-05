@@ -104,4 +104,9 @@ export auto operator*(const Matrix3D& m, const Vector3D& v) -> Vector3D;
 /// @return
 export auto transpose(const Matrix3D& m) -> Matrix3D;
 
+/// @brief Calculates the determinant of the Matrix3D
+/// @param m The Matrix3D
+/// @return
+export auto determinant(const Matrix3D& m) -> double;
+
 } // namespace cns
