@@ -58,8 +58,7 @@ export class Matrix3D {
     [[nodiscard]] auto operator[](int column) -> Vector3D&;
 
   private:
-    static constexpr size_t matrixSize = 3;
-    std::array<Vector3D, matrixSize> m_columns;
+    std::array<Vector3D, 3> m_columns;
 };
 
 /// @brief Scalar multiplication for a Matrix3D
