@@ -25,11 +25,11 @@ auto Matrix3D::operator[](int row, int column) -> double& {
 }
 
 auto Matrix3D::operator[](int column) const -> const Vector3D& {
-    return this->m_columns[column];
+    return this->m_columns.at(column);
 }
 
 auto Matrix3D::operator[](int column) -> Vector3D& {
-    return this->m_columns[column];
+    return this->m_columns.at(column);
 }
 
 auto operator*(const Matrix3D& m, const double s) -> Matrix3D {
