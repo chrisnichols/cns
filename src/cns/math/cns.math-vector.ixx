@@ -15,6 +15,11 @@ export class Vector3D {
     /// @param z
     Vector3D(double x, double y, double z) noexcept;
 
+    /// @brief Equality comparasion using a tolerable comparison
+    /// @param v Another Vector3D
+    /// @return
+    auto operator==(const Vector3D& v) const -> bool;
+
     /// @brief Defaulted Three-Way Comparison operator
     /// @param v Another Vector3D
     /// @return

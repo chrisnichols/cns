@@ -5,10 +5,18 @@ module;
 
 module cns.math;
 
+import cns.numeric;
+
 namespace cns {
 
 Vector3D::Vector3D(const double x, const double y, const double z) noexcept
     : m_components{x, y, z} {
+}
+
+auto Vector3D::operator==(const Vector3D& v) const -> bool {
+    return cns::areEqual(this->m_components[0], v.m_components[0]) &&
+           cns::areEqual(this->m_components[1], v.m_components[1]) &&
+           cns::areEqual(this->m_components[2], v.m_components[2]);
 }
 
 auto Vector3D::operator[](int i) const -> double {
