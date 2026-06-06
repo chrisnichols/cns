@@ -47,9 +47,19 @@ export class Matrix3D {
     /// @return The element at position (row, column)
     [[nodiscard]] auto operator[](int row, int column) -> double&;
 
+    /// @brief Matrix index operator.
+    /// @param column Column index
+    /// @return The column at position (column)
+    [[nodiscard]] auto operator[](int column) const -> const Vector3D&;
+
+    /// @brief Matrix index operator.
+    /// @param column Column index
+    /// @return The column at position (column)
+    [[nodiscard]] auto operator[](int column) -> Vector3D&;
+
   private:
     static constexpr size_t matrixSize = 3;
-    std::array<std::array<double, matrixSize>, matrixSize> m_data;
+    std::array<Vector3D, matrixSize> m_columns;
 };
 
 /// @brief Scalar multiplication for a Matrix3D
@@ -108,5 +118,10 @@ export auto transpose(const Matrix3D& m) -> Matrix3D;
 /// @param m The Matrix3D
 /// @return
 export auto determinant(const Matrix3D& m) -> double;
+
+/// @brief Calculates the inverse of the Matrix3D
+/// @param m The Matrix3D
+/// @return
+export auto inverse(const Matrix3D& m) -> Matrix3D;
 
 } // namespace cns

@@ -25,6 +25,11 @@ export class Vector3D {
     /// @return
     [[nodiscard]] auto operator[](int i) const -> double;
 
+    /// @brief Index operator
+    /// @param i Index
+    /// @return
+    [[nodiscard]] auto operator[](int i) -> double&;
+
     /// @brief Returns the x-compopnent of the vector
     /// @return x-component
     [[nodiscard]] auto x() const noexcept -> double;

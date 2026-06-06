@@ -8,21 +8,20 @@ namespace cns {
 
 Matrix3D::Matrix3D(double a00, double a01, double a02, double a10, double a11, double a12,
                    double a20, double a21, double a22) noexcept
-    : m_data{{{{a00, a01, a02}}, {{a10, a11, a12}}, {{a20, a21, a22}}}} {
+    : Matrix3D({a00, a10, a20}, {a01, a11, a21}, {a02, a12, a22}) {
 }
 
 Matrix3D::Matrix3D(const Vector3D& column0, const Vector3D& column1,
                    const Vector3D& column2) noexcept
-    : Matrix3D(column0[0], column1[0], column2[0], column0[1], column1[1], column2[1], column0[2],
-               column1[2], column2[2]) {
+    : m_columns{column0, column1, column2} {
 }
 
 auto Matrix3D::operator[](int row, int column) const -> double {
-    return this->m_data.at(row).at(column);
+    return this->m_columns.at(column)[row];
 }
 
 auto Matrix3D::operator[](int row, int column) -> double& {
-    return this->m_data.at(row).at(column);
+    return this->m_columns.at(column)[row];
 }
 
 auto operator*(const Matrix3D& m, const double s) -> Matrix3D {
@@ -83,6 +82,10 @@ auto determinant(const Matrix3D& m) -> double {
     return (m[0, 0] * ((m[1, 1] * m[2, 2]) - (m[1, 2] * m[2, 1]))) +
            (m[0, 1] * ((m[1, 2] * m[2, 0]) - (m[1, 0] * m[2, 2]))) +
            (m[0, 2] * ((m[1, 0] * m[2, 1]) - (m[1, 1] * m[2, 0])));
+}
+
+auto inverse(const Matrix3D& m) -> Matrix3D {
+    return m;
 }
 
 } // namespace cns

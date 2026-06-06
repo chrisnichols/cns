@@ -15,6 +15,10 @@ auto Vector3D::operator[](int i) const -> double {
     return this->m_components.at(i);
 }
 
+auto Vector3D::operator[](int i) -> double& {
+    return this->m_components.at(i);
+}
+
 auto Vector3D::x() const noexcept -> double {
     return this->m_components[0];
 }
