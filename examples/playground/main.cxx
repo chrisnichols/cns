@@ -27,8 +27,19 @@ auto main() -> int {
         const auto ma = cns::Matrix3D{1.0, 7.0, 2.0, 5.0, 2.0, 1.0, 3.0, 6.0, 9.0};
         const auto mb = cns::Matrix3D{-4.0, 2.0, 3.0, -5.0, 5.0, 2.0, 7.0, -4.0, 3.0};
 
-        std::println("{} == {}", cns::determinant(cns::inverse(ma)), (1.0 / cns::determinant(ma)));
-        std::println("{} == {}", cns::determinant(cns::inverse(mb)), (1.0 / cns::determinant(mb)));
+        {
+            const auto det = cns::determinant(cns::inverse(ma));
+            const auto invDet = 1.0 / cns::determinant(ma);
+            const auto areEqual = cns::areEqual(det, invDet);
+            std::println("ma: {} == {}, {}", det, invDet, areEqual);
+        }
+
+        {
+            const auto det = cns::determinant(cns::inverse(mb));
+            const auto invDet = 1.0 / cns::determinant(mb);
+            const auto areEqual = cns::areEqual(det, invDet);
+            std::println("mb: {} == {}, {}", det, invDet, areEqual);
+        }
     } catch (...) {
         return -1;
     }
