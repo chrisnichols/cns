@@ -24,6 +24,14 @@ auto Matrix3D::operator[](int row, int column) -> double& {
     return this->m_columns.at(column)[row];
 }
 
+auto Matrix3D::operator[](int column) const -> const Vector3D& {
+    return this->m_columns[column];
+}
+
+auto Matrix3D::operator[](int column) -> Vector3D& {
+    return this->m_columns[column];
+}
+
 auto operator*(const Matrix3D& m, const double s) -> Matrix3D {
     return {m[0, 0] * s, m[0, 1] * s, m[0, 2] * s, m[1, 0] * s, m[1, 1] * s,
             m[1, 2] * s, m[2, 0] * s, m[2, 1] * s, m[2, 2] * s};
@@ -85,7 +93,18 @@ auto determinant(const Matrix3D& m) -> double {
 }
 
 auto inverse(const Matrix3D& m) -> Matrix3D {
-    return m;
+    const Vector3D& a = m[0];
+    const Vector3D& b = m[1];
+    const Vector3D& c = m[2];
+
+    Vector3D r0 = cross(b, c);
+    Vector3D r1 = cross(c, a);
+    Vector3D r2 = cross(a, b);
+
+    const double oneOverDeterminant = 1.0 / dot(r2, c);
+
+    return oneOverDeterminant *
+           Matrix3D(r0.x(), r0.y(), r0.z(), r1.x(), r1.y(), r1.z(), r2.x(), r2.y(), r2.z());
 }
 
 } // namespace cns

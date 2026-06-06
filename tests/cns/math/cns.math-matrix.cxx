@@ -160,9 +160,8 @@ SCENARIO("Matrix3D determinant") {
 
         THEN("Determinant of the inverse of a matrix is equal to 1 over the determinant of the "
              "matrix") {
-            // TODO
-            // CHECK(determinant(inverse(a)) == (1.0 / determinant(a)));
-            // CHECK(determinant(inverse(b)) == (1.0 / determinant(b)));
+            CHECK(determinant(inverse(a)) == (1.0 / determinant(a)));
+            CHECK(determinant(inverse(b)) == (1.0 / determinant(b)));
         }
 
         THEN("Determinant of a product is equal to the product of determinants") {

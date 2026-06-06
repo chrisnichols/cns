@@ -23,6 +23,12 @@ auto main() -> int {
 
         const auto m = cns::Matrix3D{1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0};
         std::println("m = {}", m);
+
+        const auto ma = cns::Matrix3D{1.0, 7.0, 2.0, 5.0, 2.0, 1.0, 3.0, 6.0, 9.0};
+        const auto mb = cns::Matrix3D{-4.0, 2.0, 3.0, -5.0, 5.0, 2.0, 7.0, -4.0, 3.0};
+
+        std::println("{} == {}", cns::determinant(cns::inverse(ma)), (1.0 / cns::determinant(ma)));
+        std::println("{} == {}", cns::determinant(cns::inverse(mb)), (1.0 / cns::determinant(mb)));
     } catch (...) {
         return -1;
     }
